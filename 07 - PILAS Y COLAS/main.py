@@ -21,7 +21,6 @@ print(stack.pop())
 
 print(stack)
 
-
 # Cola/Queue (FIFO)
 
 queue = []
@@ -30,6 +29,7 @@ queue = []
 queue.append(1)
 queue.append(2)
 queue.append(3)
+
 print(queue)
 
 # dequeue
@@ -76,3 +76,25 @@ def web_navigation():
 
 
 web_navigation()
+
+
+def shared_printed():
+
+    queue = []
+
+    while True:
+
+        action = input("Añade un documento o selecciona imprimir/salir: ")
+
+        if action == "salir":
+            break
+        elif action == "imprimir":
+            if len(queue) > 0:
+                print(f"Imprimiendo: {queue.pop(0)}")
+        else:
+            queue.append(action)
+
+        print(f"Cola de impresión: {queue}")
+
+
+shared_printed()
