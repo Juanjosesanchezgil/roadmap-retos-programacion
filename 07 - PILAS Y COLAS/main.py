@@ -20,3 +20,29 @@ print(stack_item)
 print(stack.pop())
 
 print(stack)
+
+
+# Cola/Queue (FIFO)
+
+queue = []
+
+# enqueue
+queue.append(1)
+queue.append(2)
+queue.append(3)
+print(queue)
+
+# dequeue
+queue_item = queue[0]
+del queue[0]
+print(queue_item)
+
+print(queue.pop(0))
+
+print(queue)
+
+"""
+Extra
+"""
+
+# Web
