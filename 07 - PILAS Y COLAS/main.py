@@ -46,3 +46,33 @@ Extra
 """
 
 # Web
+
+
+def web_navigation():
+
+    stack = []
+
+    while True:
+
+        action = input(
+            "Añade una url o interactúa con palabras adelante/atrás/salir: "
+        )
+
+        if action == "salir":
+            print("Saliendo del navegador web.")
+            break
+        elif action == "adelante":
+            pass
+        elif action == "atrás":
+            if len(stack) > 0:
+                stack.pop()
+        else:
+            stack.append(action)
+
+        if len(stack) > 0:
+            print(f"Has navegado a la web: {stack[len(stack) - 1]}.")
+        else:
+            print("Estás en la página de inicio.")
+
+
+web_navigation()
