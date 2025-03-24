@@ -1,29 +1,65 @@
-def square(x: int) -> int:
-    return x * x
+from functools import reduce
+from datetime import datetime
+
+"""
+Ejercicio
+"""
+
+# Función como argumento
 
 
-def apply_to_each(func, iter):
-    return [func(x) for x in iter]
+def apply_func(func, x):
+    return func(x)
 
 
-numeros = [1, 2, 3, 4, 5]
-print(apply_to_each(square, numeros))
+print(apply_func(len, "MoureDev"))
+
+# Retorno de función
 
 
-students = [
-    {"name": "Juan", "birthdate": "23-05-1984", "grades": [5, 7, 8, 9, 10]},
-    {"name": "Jose", "birthdate": "23-07-2000", "grades": [4, 7, 6, 9, 3]},
-    {"name": "Paco", "birthdate": "23-05-1999", "grades": [5, 7, 6, 7, 2]}
-]
+def apply_multiplier(n):
+    def multiplier(x):
+        return x * n
+    return multiplier
 
 
-def average(grades):
-    return (sum(grades) / len(grades))
+multiplier = apply_multiplier(2)
+print(multiplier(5))
+print(apply_multiplier(3)(2))
+
+#  Sistema
+
+numbers = [1, 3, 4, 2, 5]
+
+# map()
 
 
-print(
-    list(map(lambda student: {
-        "name": student["name"],
-        "average": average(student["grades"])}, students)
-    )
-)
+def apply_double(n):
+    return n * 2
+
+
+print(list(map(apply_double, numbers)))
+
+# filter()
+
+
+def is_even(n):
+    return n % 2 == 0
+
+
+print(list(filter(is_even, numbers)))
+
+# sorted()
+
+print(sorted(numbers))
+print(sorted(numbers, reverse=True))
+print(sorted(numbers, key=lambda x: -x))
+
+# reduce()
+
+
+def sum_values(x, y):
+    return x + y
+
+
+print(reduce(sum_values, numbers))
